@@ -1,13 +1,13 @@
 # Colors Demo
 
-## Attampte to replicate meteor experience with ember-data
+## Attempt to replicate Meteor experience with ember-data
 
-This is juste a demo. Esetialy the query stuff is juste a prouf of concept.
-Lots of performance/sequrety concerns to be addressed.
+This is just a demo. Essentially the query stuff is just a proof of concept.
+Lots of performance/security concerns to be addressed.
 
-The demo make use of Slanger for websocket notificatons
+The demo makes use of Slanger for websocket notificatons
 
-You have to run redis and slanger alongside the demo rails app
+You have to run Redis and Slanger alongside the demo Rails app
 
 ````
 brew install redis
@@ -28,7 +28,7 @@ bundle exec rake db:migrate
 bundle exec rails
 ````
 
-Try it simultanaously in two browsers.
+Try it simultaniously in two browsers.
 You can try some query in your webinspector console. Look at the end of query.js file for the supported syntax.
 
 ````
