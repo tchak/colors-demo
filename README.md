@@ -12,14 +12,20 @@ You have to run redis and slanger alongside the demo rails app
 ````
 brew install redis
 redis-server
+````
+
+````
+git clone git://github.com/tchak/colors-demo.git
+cd colors-demo
 
 bundle install
 bundle exec slanger --app_key colors --secret toto42
+````
 
+````
+cd colors-demo
 bundle exec rake db:migrate
 bundle exec rails
-
-open localhost:3000
 ````
 
 Try it simultanaously in two browsers.
