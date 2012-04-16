@@ -1,0 +1,14 @@
+//= require bootstrap
+
+td {
+  color: white;
+
+  &.buttons {
+    width: 200px;
+    text-align: center;
+  }
+}
+
+body {
+  padding-top: 90px;
+}

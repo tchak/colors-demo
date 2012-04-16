@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Colors
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a class="brand" href="#" Colors
+    .container
+      handlebars:
+        {{view App.ColorsView}}
