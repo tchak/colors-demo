@@ -1,8 +1,8 @@
 # Colors Demo
 
-## Attampte to replicate meteor experience with ember-data
+## Attempt to replicate meteor experience with ember-data
 
-This is juste a demo. Essentially the query stuff is juste a proof of concept.
+This is just a demo. Essentially the query stuff is just a proof of concept.
 Lot of performance/security concerns to be addressed.
 
 The demo make use of Slanger for websocket notificatons
