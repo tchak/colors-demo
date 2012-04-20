@@ -1,14 +1,17 @@
-DS.Pusher.create({
-  apiKey: 'colors-app'
-});
-
 var App = Ember.Application.create({
   ready: function() {
+
+    var appKey = $('meta[name=pusher-app-key]').attr('content');
+
+    DS.Pusher.create({
+      appKey: appKey
+    });
+
     App.Color.subscribe();
   },
 
   store: DS.Store.create({
-    revision: 5,
+    revision: 4,
     adapter: DS.RESTAdapter.create({
       bulkCommit: false,
       namespace: 'api/v1'
@@ -33,7 +36,11 @@ App.Color = DS.Model.extend({
 
   backgroundStyle: function() {
     return 'background-color: %@;'.fmt(this.get('value'));
-  }.property('name').cacheable()
+  }.property('name').cacheable(),
+
+  isSelected: function() {
+    return Ember.defaultSession.get('selectedColorId') == this.get('id');
+  }.property('id', 'Ember.defaultSession.selectedColorId').cacheable()
 });
 
 App.colorsController = Ember.ArrayProxy.create({
@@ -68,20 +75,24 @@ App.colorsController = Ember.ArrayProxy.create({
       name: null,
       value: null
     });
+    $('.ember-color-field').css('backgroundColor', 'none');
   }
 });
 
 App.ColorsView = Ember.View.extend({
   controller: App.colorsController,
-  templateName: 'templates/main'
+  templateName: 'templates/main',
+
+  select: function(evt) {
+    Ember.defaultSession.set('selectedColorId', $(evt.currentTarget).data('color-id'));
+  }
 });
 
 App.ColorField = Ember.TextField.extend({
   classNames: ['ember-color-field'],
   didInsertElement: function() {
     colorPicker.allowClose = false;
-    colorPicker.expColor = false;
-    colorPicker.expHEX = false;
+    //colorPicker.expColor = false;
     colorPickerallowResize = false;
     colorPicker.allowDrag = false;
     size = 1;

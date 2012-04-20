@@ -7,7 +7,7 @@ DS.Query = Ember.ArrayProxy.extend({
   content: null,
 
   where: function(query) {
-    query = $.extend({}, this.get('query'), query);
+    query = $.extend(true, {}, this.get('query'), query);
     this.set('query', query);
 
     return this;
@@ -19,7 +19,7 @@ DS.Query = Ember.ArrayProxy.extend({
     this.set('isLoaded', false);
     this.set('isLoading', true);
 
-    query = $.extend({}, this.get('query'), query);
+    query = $.extend(true, {}, this.get('query'), query);
 
     this.set('currentQuery', query);
 

@@ -65,15 +65,16 @@ DS.Model.reopenClass({
 });
 
 DS.Pusher = Ember.Object.extend({
-  host: 'localhost',
-  port: 8080,
-  apiKey: null,
+  appKey: null,
 
   init: function() {
-    Pusher.host = this.get('host');
-    Pusher.ws_port = this.get('port');
+    // TODO: Find a better way to switch betwin pusher and slanger
+    if (location.hostname === 'localhost') {
+      Pusher.host = 'localhost';
+      Pusher.ws_port = 8080;
+    }
 
-    this.socket = new Pusher(this.get('apiKey'));
+    this.socket = new Pusher(this.get('appKey'));
 
     this.socket.connection.bind('connected', $.proxy(function(socket) {
       this.socketId = this.socket.connection.socket_id;

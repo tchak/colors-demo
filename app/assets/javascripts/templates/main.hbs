@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       {{#each controller}}
-        <tr>
+        <tr {{action select target="view"}} {{bindAttr data-color-id="id" class="isSelected:selected"}}>
           <td {{bindAttr style="backgroundStyle"}}>
             {{likes}} - {{name}}
           </td>

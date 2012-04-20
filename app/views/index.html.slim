@@ -5,6 +5,7 @@ html
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    meta name="pusher-app-key" content="#{Pusher.key}"
   body
     .navbar.navbar-fixed-top
       .navbar-inner
@@ -13,3 +14,8 @@ html
     .container
       handlebars:
         {{view App.ColorsView}}
+    footer
+      a href="http://emberjs.com"
+        img src="http://emberjs.com/images/logo.png"
+      a href="http://pusher.com?utm_source=badge"
+        img src="http://pusher.com/images/badges/pusher_badge_light_2.png"

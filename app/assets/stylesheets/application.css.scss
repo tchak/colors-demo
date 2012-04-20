@@ -1,5 +1,12 @@
 //= require bootstrap
 
+tr.selected td {
+  background-color: #555 !important;
+  &:last-child {
+    outline: 2px dashed #777;
+  }
+}
+
 td {
   color: white;
 
@@ -11,4 +18,13 @@ td {
 
 body {
   padding-top: 90px;
+}
+
+footer {
+  text-align: right;
+  padding: 10px;
+
+  a:first-child {
+    margin-right: 20px;
+  }
 }

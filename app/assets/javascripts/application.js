@@ -16,7 +16,6 @@
 //= require pusher
 //= require colorPicker
 
-//= require query
-//= require model
+//= require_tree ./lib
 
 //= require_tree .
