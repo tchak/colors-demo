@@ -1,0 +1,23 @@
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th collspan="2">Colors</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each controller}}
+        {{#unless isNew}}
+          <tr {{action editColor}} {{bindAttr class="isSelected:selected"}}>
+            <td {{bindAttr style="backgroundStyle"}}>
+              {{likes}} - {{name}}
+            </td>
+            <td class="buttons">
+              <button class="btn btn-mini" {{action likeColor}}>Like</button>
+              <button class="btn btn-mini" {{action deleteColor}}>Remove</button>
+            </td>
+          </tr>
+        {{/unless}}
+      {{/each}}
+    </tbody>
+  </table>
+

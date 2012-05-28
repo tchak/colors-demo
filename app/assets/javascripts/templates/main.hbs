@@ -1,32 +1,8 @@
-{{#if controller.isEmpty}}
+{{#if controller.hasNoColors}}
   <div class="well">
-    <button class="btn btn-large" {{action createColors target="controller"}}>Create Demo Colors</button>
+    <button class="btn btn-large" {{action createColors}}>Create Demo Colors</button>
   </div>
 {{else}}
-  <form {{action createColor on="submit" target="controller"}} class="well form-inline">
-    {{view Ember.TextField class="input-small" placeholder="Name" valueBinding="controller.color.name"}}
-    {{view App.ColorField class="input-small" placeholder="Value" valueBinding="controller.color.value"}}
-    <button type="submit" class="btn">Create</button>
-  </form>
-
-  <table class="table table-bordered table-striped">
-    <thead>
-      <tr>
-        <th collspan="2">Colors</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each controller}}
-        <tr {{action select target="view"}} {{bindAttr data-color-id="id" class="isSelected:selected"}}>
-          <td {{bindAttr style="backgroundStyle"}}>
-            {{likes}} - {{name}}
-          </td>
-          <td class="buttons">
-            <button class="btn btn-mini" {{action like target="*"}}>Like</button>
-            <button class="btn btn-mini" {{action remove target="*"}}>Remove</button>
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  {{outlet edit}}
+  {{outlet list}}
 {{/if}}

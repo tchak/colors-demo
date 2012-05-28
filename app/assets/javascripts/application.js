@@ -18,4 +18,5 @@
 
 //= require_tree ./lib
 
+//= require main
 //= require_tree .

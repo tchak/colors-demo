@@ -1,9 +1,9 @@
 //= require bootstrap
 
 tr.selected td {
-  background-color: #555 !important;
+  outline: 2px dashed #777;
   &:last-child {
-    outline: 2px dashed #777;
+    background-color: #555 !important;
   }
 }
 
@@ -26,5 +26,9 @@ footer {
 
   a:first-child {
     margin-right: 20px;
+    display: inline-block;
+    height: 46px;
+    background: orange;
+    padding-top: 5px;
   }
 }

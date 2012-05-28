@@ -1,0 +1,12 @@
+<form {{action saveColor on="submit"}} class="well form-inline">
+  {{view Ember.TextField class="input-small" placeholder="Name" valueBinding="controller.name"}}
+  {{view App.ColorField class="input-small" placeholder="Value" valueBinding="controller.value"}}
+
+  {{#if controller.isNew}}
+    <button type="submit" class="btn">Create</button>
+  {{else}}
+    <button type="submit" class="btn">Update</button>
+    <button type="reset" {{action cancel}} class="btn">Cancel</button>
+  {{/if}}
+
+</form>

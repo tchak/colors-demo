@@ -24,6 +24,12 @@ Ember.Storage = Ember.Object.extend({
     return get(this, 'data')[key];
   },
 
+  setUnknownProperty: function(key, value) {
+    Ember.defineProperty(this, key, dataProperty);
+
+    return set(this, key, value);
+  },
+
   toJSON: function() {
     return get(this, 'data');
   },
